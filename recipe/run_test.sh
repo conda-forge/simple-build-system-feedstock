@@ -1,5 +1,9 @@
 set -eux
 pip check
+#Explicitly source activation script, since the test environment apparently does
+#not always trigger these scripts automatically.
+test -f "${PREFIX}/etc/conda/activate.d/simple-build-system_activate.sh"
+. "${PREFIX}/etc/conda/activate.d/simple-build-system_activate.sh"
 sb --help
 python3 -c 'import _simple_build_system._cli'
 unwrapped_simplebuild --help
