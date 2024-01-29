@@ -1,4 +1,4 @@
-{% set version = "0.0.32" %}
+{% set version = "0.0.34" %}
 
 #NB get sha256 with: curl -sL <URL> | openssl sha256
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/mctools/simplebuild/archive/v{{ version }}.tar.gz
-  sha256: 465fba140f6e3128a5356e2e030267fbc812f42b94cd3823e6c8c2c9b0af6743
+  sha256: 80eafda3143c0490c00c8446e9d2c13e8a413d29cdef2fb6fa218eb42a246f4e
 
 build:
   skip: true  # [win or py<39]
