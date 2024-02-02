@@ -22,3 +22,8 @@ EC=0
 sb_core_extdeps || EC=$?
 test $EC -ne 0
 sbenv sb_core_extdeps --require-disabled NCrystal Numpy matplotlib Geant4 ZLib
+#Try to install a package which has a minimum requirement on the version of
+#simple-build-system (this will fail if the setuptools-git-versioning did not
+#get the correct version):
+pip install simple-build-dgcode==0.0.7
+pip check
