@@ -4,7 +4,8 @@ set -eux
 #tag. So we initialise a git repo and add the version tag.
 git init
 git add .
-git commit -m "Source version v${PKG_VERSION}"
+git commit -m "Source version v${PKG_VERSION}" \
+    --author='Dummy <simple-build-system-feedstock@noreply.github.com>'
 git tag v${PKG_VERSION}
 python -m pip install --no-deps -vv .
 mkdir -p "${PREFIX}/etc/conda/activate.d"
