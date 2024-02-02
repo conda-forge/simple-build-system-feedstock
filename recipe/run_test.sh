@@ -1,5 +1,8 @@
 set -eux
+pip list
 pip check
+#Verify pkg version also works on python level:
+python -c 'from importlib.metadata import version as v;from os import environ as e;assert e["PKG_VERSION"]==v(e["PKG_NAME"])'
 #Explicitly source activation script, since the test environment apparently does
 #not always trigger these scripts automatically.
 test -f "${PREFIX}/etc/conda/activate.d/simple-build-system_activate.sh"
@@ -22,8 +25,3 @@ EC=0
 sb_core_extdeps || EC=$?
 test $EC -ne 0
 sbenv sb_core_extdeps --require-disabled NCrystal Numpy matplotlib Geant4 ZLib
-#Try to install a package which has a minimum requirement on the version of
-#simple-build-system (this will fail if the setuptools-git-versioning did not
-#get the correct version):
-pip install simple-build-dgcode==0.0.7
-pip check
