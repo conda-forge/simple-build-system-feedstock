@@ -12,7 +12,7 @@ source:
 
 build:
   skip: true  # [win or py<39]
-  number: 0
+  number: 1
   entry_points:
     - sb = _simple_build_system._cli:main
     - unwrapped_simplebuild = _simple_build_system._cli:unwrapped_main
