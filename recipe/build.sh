@@ -8,7 +8,8 @@ git config user.email "${PKG_NAME}-feedstock@noreply.github.com"
 git config user.name "Dummy Name"
 git add .
 git commit -m "Source version v${PKG_VERSION}"
-git tag v${PKG_VERSION}
+git tag v${PKG_VERSION} -m "Tagging v${PKG_VERSION}"
+git log
 python -m pip install --no-deps -vv .
 mkdir -p "${PREFIX}/etc/conda/activate.d"
 mkdir -p "${PREFIX}/etc/conda/deactivate.d"

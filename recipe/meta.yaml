@@ -26,6 +26,8 @@ requirements:
   host:
     - python
     - pip
+    - setuptools-git-versioning
+    - setuptools
   run:
     - python
     - tomli  # [py<311]
