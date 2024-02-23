@@ -12,7 +12,7 @@ source:
 
 build:
   skip: true  # [win or py<39]
-  number: 0
+  number: 1
   entry_points:
     - sb = _simple_build_system._cli:main
     - unwrapped_simplebuild = _simple_build_system._cli:unwrapped_main
@@ -39,8 +39,8 @@ requirements:
 test:
   requires:
     # Note: The actual tests are defined in run_test.sh
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    - c_compiler
+    - cxx_compiler
     - pip
 
 about:
