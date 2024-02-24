@@ -39,8 +39,8 @@ requirements:
 test:
   requires:
     # Note: The actual tests are defined in run_test.sh
-    - c_compiler
-    - cxx_compiler
+    - c-compiler
+    - cxx-compiler
     - pip
 
 about:
