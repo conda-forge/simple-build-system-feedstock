@@ -11,8 +11,8 @@ source:
   sha256: df7d8f626b149193b3c9e214a807320fa6e914682d6131a4760c6831fc36655c
 
 build:
-  skip: true  # [win or py<39]
-  number: 0
+  noarch: python
+  number: 1
   entry_points:
     - sb = _simple_build_system._cli:main
     - unwrapped_simplebuild = _simple_build_system._cli:unwrapped_main
@@ -20,17 +20,15 @@ build:
     - sbrun = _simple_build_system._cli:sbrun_main
 
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - python
+    - python >=3.8
     - pip
     - setuptools-git-versioning
     - setuptools
   run:
-    - python
-    - tomli  # [py<311]
+    - python >=3.8
+    #NB: Once oldest supported python is 3.11, we can remove tomli:
+    - tomli
     - pybind11 >=2.10.4
     - cmake >=3.24.2
     - make
@@ -39,8 +37,8 @@ requirements:
 test:
   requires:
     # Note: The actual tests are defined in run_test.sh
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    - c-compiler
+    - cxx-compiler
     - pip
 
 about:
