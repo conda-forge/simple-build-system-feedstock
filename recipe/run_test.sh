@@ -15,6 +15,8 @@ cd testsbproj
 sb --init core_val COMPACT
 test -f simplebuild.cfg
 cat simplebuild.cfg
+#TEMPORARY TEST:
+sb && sbenv sb_coretests_testpylibsymbols
 sb -t
 sb_core_extdeps --require-disabled NCrystal Numpy matplotlib Geant4 ZLib
 python3 -c 'import _simple_build_system.envsetup as sbe; sbe.verify_env_already_setup()'
