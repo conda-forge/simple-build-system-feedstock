@@ -1,9 +1,11 @@
+{% set version = "1.1.1" %}
+
 package:
   name: simple-build-system
-  version: 1.1.1
+  version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/simple-build-system/simple_build_system-1.1.1.tar.gz
+  url: https://pypi.io/packages/source/s/simple-build-system/simple_build_system-{{ version }}.tar.gz
   #NB: get sha256 from https://pypi.org/project/simple-build-system/#files
   sha256: 5ad0f2067cbcf821cd4c16f45dabe1f0ca26d1ddaf47738913ba3a4c7200a0dc
 
