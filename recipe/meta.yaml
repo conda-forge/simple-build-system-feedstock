@@ -1,4 +1,4 @@
-{% set version = "1.2.1" %}
+{% set version = "1.2.2" %}
 
 package:
   name: simple-build-system
@@ -7,7 +7,7 @@ package:
 source:
   url: https://pypi.io/packages/source/s/simple-build-system/simple_build_system-{{ version }}.tar.gz
   #NB: get sha256 from https://pypi.org/project/simple-build-system/#files
-  sha256: 63eff127bb6a69a6e2cc417a28a9e0150f43101279de6bc2cb7c9ef7796a7c98
+  sha256: 5a356052b66808de80bff1c32360b8fe7fbeef50c0cc088194e2a95093d35bda
 
 build:
   noarch: python
