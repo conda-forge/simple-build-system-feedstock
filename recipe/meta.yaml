@@ -20,12 +20,12 @@ build:
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
     - setuptools-git-versioning
     - setuptools
   run:
-    - python
+    - python >={{ python_min }}
     #NB: Once oldest supported python is 3.11, we can remove tomli:
     - tomli
     - pybind11 >=2.10.4
@@ -36,6 +36,7 @@ requirements:
 test:
   requires:
     # Note: The actual tests are defined in run_test.sh
+    - python {{ python_min }}
     - c-compiler
     - cxx-compiler
     - pip
