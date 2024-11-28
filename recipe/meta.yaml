@@ -5,13 +5,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/simple-build-system/simple_build_system-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/s/simple-build-system/simple_build_system-{{ version }}.tar.gz
   #NB: get sha256 from https://pypi.org/project/simple-build-system/#files
   sha256: e4036bae5414e8cc3e109db408ff6077e25686852f1121543e68c3caf8fc42e4
 
 build:
   noarch: python
-  number: 0
+  number: 1
   entry_points:
     - sb = _simple_build_system._cli:main
     - unwrapped_simplebuild = _simple_build_system._cli:unwrapped_main
@@ -20,12 +20,12 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - setuptools-git-versioning
     - setuptools
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     #NB: Once oldest supported python is 3.11, we can remove tomli:
     - tomli
     - pybind11 >=2.10.4
@@ -36,6 +36,7 @@ requirements:
 test:
   requires:
     # Note: The actual tests are defined in run_test.sh
+    - python {{ python_min }}
     - c-compiler
     - cxx-compiler
     - pip
