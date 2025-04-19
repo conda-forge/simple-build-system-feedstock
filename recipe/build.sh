@@ -1,5 +1,6 @@
 set -eux
-python -m pip install --no-deps -vv .
+python -m pip install --no-deps -vv --no-build-isolation .
+python -m pip check
 mkdir -p "${PREFIX}/etc/conda/activate.d"
 mkdir -p "${PREFIX}/etc/conda/deactivate.d"
 cp ./src/_simple_build_system/data/resources/shellrc_snippet.sh \
