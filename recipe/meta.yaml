@@ -1,13 +1,13 @@
-{% set version = "1.6.1" %}
+{% set version = "1.7.0" %}
 
 package:
   name: simple-build-system
   version: {{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/3a/c0/6db9e7b66766c4e4f66992c9f0d8f27b5783251fba037614f69fe6ffc715/simple_build_system-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/s/simple-build-system/simple_build_system-{{ version }}.tar.gz
   #NB: get sha256 from https://pypi.org/project/simple-build-system/#files
-  sha256: 8bb8a8fa99bcd1b383d4fb4ab75264eb6ffb34812169623874df0d5b071abbc2
+  sha256: 59f2a958f0e8073b3a059a085989656eda8c5b2e8a3ded49219757939f3dbb31
 
 build:
   noarch: python
@@ -31,7 +31,7 @@ requirements:
     - pybind11 >=2.10.4
     - cmake >=3.24.2
     - make
-    - numpy
+    - numpy >=1.22
 
 test:
   requires:
