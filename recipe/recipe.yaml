@@ -1,0 +1,69 @@
+schema_version: 1
+
+context:
+  version: "1.8.0"
+
+package:
+  name: simple-build-system
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/s/simple-build-system/simple_build_system-${{ version }}.tar.gz
+  #NB: get sha256 from https://pypi.org/project/simple-build-system/#files
+  sha256: 31feedb7b64f2957db68e7fab72717ef929286d7a7cfb14e4ab1c860ebce09d1
+
+build:
+  number: 0
+  noarch: python
+  script: build.sh
+  python:
+    entry_points:
+      - sb = _simple_build_system._cli:main
+      - unwrapped_simplebuild = _simple_build_system._cli:unwrapped_main
+      - sbenv = _simple_build_system._cli:sbenv_main
+      - sbrun = _simple_build_system._cli:sbrun_main
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+    - setuptools-git-versioning
+  run:
+    - python >=${{ python_min }}
+    - pybind11 >=2.10.4
+    - cmake >=3.24.2
+    - make
+    - numpy >=1.22
+
+tests:
+  - python:
+      imports:
+        - _simple_build_system
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - script: run_test.sh
+    requirements:
+      run:
+        - python ${{ python_min }}.*
+        - c-compiler
+        - cxx-compiler
+        - pip
+
+about:
+  homepage: https://mctools.github.io/simplebuild
+  summary: A very simple to use build system for scientific projects with C++/Python.
+  description: |
+    A very simple to use build system for projects with primarily C++/Python
+    code, intended for usage by scientific developers without a strong
+    SW-engineering background
+  license: Apache-2.0
+  license_file: LICENSE
+  documentation: https://mctools.github.io/simplebuild
+  repository: https://github.com/mctools/simplebuild
+
+extra:
+  recipe-maintainers:
+    - tkittel
