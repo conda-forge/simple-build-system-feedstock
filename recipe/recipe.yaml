@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "2.0.0"
+  version: "2.1.0"
 
 package:
   name: simple-build-system
@@ -10,7 +10,7 @@ package:
 source:
   url: https://pypi.org/packages/source/s/simple-build-system/simple_build_system-${{ version }}.tar.gz
   #NB: get sha256 from https://pypi.org/project/simple-build-system/#files
-  sha256: a1d3bc5179d2daa7d467e78b4abe8dcf74810c9f41ab62e1562b1eac3b15a148
+  sha256: 5ed8316ced0965eb83525be674d1749797cafe173fbd01cbd14a55fccacfc384
 
 build:
   number: 0
